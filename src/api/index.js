@@ -9,4 +9,5 @@ export const fetchCryptos = async () => {
   } catch (err) {
     resizeBy.send(err);
   }
+  
 };
