@@ -1,0 +1,35 @@
+.allCard {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.cards {
+  background-color: dimgrey;
+  margin-top: 2em;
+  margin-right: 2em;
+  height: 15em;
+  width: 15em;
+  border-radius: 10%;
+}
+.name {
+  display: flex;
+  justify-content: space-evenly;
+}
+.wordingLeft {
+  margin-left: 2%;
+}
+.smaller {
+  font-size: x-small;
+  margin-left: 2%;
+}
+.image {
+  height: 3em;
+  width: 3em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.darkerText {
+  font-weight: bolder;
+}

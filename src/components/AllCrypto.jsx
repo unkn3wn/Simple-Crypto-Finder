@@ -1,6 +1,7 @@
 import { fetchCryptos } from "../api";
 
 import { useState, useEffect } from "react";
+import styles from "../styles/cards.module.css";
 
 export default function AllCrpyto() {
   const [crypto, setCrypto] = useState([]);
@@ -15,16 +16,18 @@ export default function AllCrpyto() {
   }, []);
 
   return (
-    <div>
-      {" "}
-      <input
-        type="text"
-        placeholder="search"
-        onChange={(event) => {
-          setSearchTerm(event.target.value);
-        }}
-      />
-      <div className="flex flex-wrap">
+    <div >
+      <div>
+        <input
+          type="text"
+          placeholder="search"
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
+        />
+      </div>
+
+      <div className={styles.allCard}>
         {crypto
           .filter((info) => {
             if (setSearchTerm == "") {
@@ -37,25 +40,28 @@ export default function AllCrpyto() {
           })
           .map((info) => {
             return (
-              <div key={info.id} className="flex flex-wrap ml-10 mt-10">
-                <div className="flex flex-col">
-                  <h1>{info.symbol}</h1>
-                  <h1>{info.name}</h1>
+              <div className={styles.format}>
+                <div className={styles.cards}>
+                  <div className={styles.name}>
+                    {" "}
+                    <h1 className={styles.sym}>SYM: {info.symbol.toUpperCase()}</h1>
+                    <h1>{info.name}</h1>
+                  </div>
 
                   {info.price_change_percentage_24h < 0 ? (
-                    <p className="text-red-600">
+                    <p className="text-red-600 text-center">
                       {info.price_change_percentage_24h.toFixed(2)}%
                     </p>
                   ) : (
-                    <p className="text-green-400">
+                    <p className="text-green-400 text-center">
                       {info.price_change_percentage_24h.toFixed(2)}%
                     </p>
                   )}
-
-                  <img className="h-10 w-10 justify-center" src={info.image} />
-                  <h1>{info.current_price}</h1>
-                  <h1>{info.market_cap}</h1>
-                  <h1>{info.total_volume}</h1>
+                  <img className={styles.image} src={info.image} />
+                  <h1 className={styles.wordingLeft}> <span className={styles.darkerText}>PRICE: </span> ${info.current_price}</h1>
+                  <h1 className={styles.wordingLeft}> <span className={styles.darkerText}>MARKET CAP 24HRS: </span> {info.market_cap}</h1>
+                  <h1 className={styles.wordingLeft}> <span className={styles.darkerText}>VOLUME: </span> {info.total_volume}</h1>
+                  <h6 className={styles.smaller}><span className={styles.darkerText}>LAST UPDATED: </span>{info.last_updated}</h6>
                 </div>
               </div>
             );
