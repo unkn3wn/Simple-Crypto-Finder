@@ -1,16 +1,16 @@
 .allCard {
   display: flex;
-  flex-wrap: wrap;
-  margin-left: 10%;
-  margin-right: 10%;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .cards {
   background-color: dimgrey;
   margin-top: 2em;
-  margin-right: 2em;
-  height: 15em;
-  width: 15em;
+  margin-right: 1em;
+  height: 18em;
+  width: 100%;
   border-radius: 10%;
 }
 .name {
