@@ -2,6 +2,8 @@ import { fetchCryptos } from "../api";
 
 import { useState, useEffect } from "react";
 import styles from "../styles/cards.module.css";
+import Aos from "aos"
+import "aos/dist/aos.css";
 
 export default function AllCrpyto() {
   const [crypto, setCrypto] = useState([]);
@@ -9,6 +11,10 @@ export default function AllCrpyto() {
   const refreshPage = () =>{
     window.location.reload();
   }
+
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, []);
 
   useEffect(() => {
     async function getAllCrypto() {
@@ -48,7 +54,7 @@ export default function AllCrpyto() {
           })
           .map((info) => {
             return (
-              <div key={info.id} className={styles.format}>
+              <div key={info.id} data-aos="fade-up" className={styles.format}>
                 <div  className={styles.cards}>
                   <div className={styles.name}>
                     {" "}
