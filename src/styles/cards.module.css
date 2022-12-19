@@ -33,3 +33,12 @@
 .darkerText {
   font-weight: bolder;
 }
+
+
+.bttn{
+  margin-left: 40%;
+  margin-right: 40%;
+  width: 20%;
+  background-color: white;
+  margin-top: 2%;
+}

@@ -6,6 +6,9 @@ import styles from "../styles/cards.module.css";
 export default function AllCrpyto() {
   const [crypto, setCrypto] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const refreshPage = () =>{
+    window.location.reload();
+  }
 
   useEffect(() => {
     async function getAllCrypto() {
@@ -17,10 +20,13 @@ export default function AllCrpyto() {
 
   return (
     <div >
-      <h1>SEARCH FOR A CRYPTO OF YOUR CHOICE</h1>
-      <div >
+      <div className="sticky top-0 bg-black">
+        <h1 className="text-center text-white ">SEARCH FOR A CRYPTO OF YOUR CHOICE</h1>
+        <h4 className="text-center text-white "> Refresh about every 5-10 minutes</h4>
+          <button  className={styles.bttn} onClick={refreshPage}>Refresh</button>
+        
         <input
-          className="bg-red-300 text-center w-full"
+          className="bg-red-600 text-center w-full  h-10 mt-2"
           type="text"
           placeholder="search"
           onChange={(event) => {
